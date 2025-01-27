@@ -8,18 +8,22 @@
     android:background="@color/green_background">
 
     <!-- Tablero de números -->
+
+    <!-- Sección de fichas -->
     <GridLayout
         android:id="@+id/roulette_board"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="8dp"
         android:background="@drawable/board_background"
         android:columnCount="12"
+        android:padding="8dp"
         android:rowCount="4"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/chip_section"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <!-- Ruleta -->
 
@@ -27,10 +31,10 @@
 
         <ImageView
             android:id="@+id/ruleta"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="248dp"
+            android:layout_height="249dp"
             android:layout_row="0"
-            android:layout_column="3"
+            android:layout_column="4"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/ruleta"
             android:src="@drawable/ruleta"
@@ -67,7 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_row="0"
-            android:layout_column="2"
+            android:layout_column="3"
             android:layout_margin="2dp"
             android:background="@drawable/cell_background_red"
             android:gravity="center"
@@ -111,11 +115,18 @@
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="4"
+            app:srcCompat="@android:drawable/radiobutton_off_background" />
+
         <!-- Más celdas se pueden añadir siguiendo el mismo patrón -->
 
     </GridLayout>
 
-    <!-- Sección de fichas -->
     <LinearLayout
         android:id="@+id/chip_section"
         android:layout_width="0dp"

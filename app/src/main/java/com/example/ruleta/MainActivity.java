@@ -2,12 +2,9 @@ package com.example.ruleta;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.animation.ObjectAnimator;
-import android.animation.TimeInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,17 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void btnPulsadoRotar(View view){
-        // Crear un ObjectAnimator para rotar la ruleta
-        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "rotation", 0f, 3600f);
+        java.util.Random aleatorio = new java.util.Random();
+        int vueltasCompletas = 3 + aleatorio.nextInt(8);
+        int anguloExtra = aleatorio.nextInt(360);
 
-        // Duración de la animación (en milisegundos)
-        animator.setDuration(2000); // 2 segundos para girar
+        float nVueltas = (vueltasCompletas * 360) + anguloExtra;
 
-        // Interpolador para desacelerar gradualmente
-        TimeInterpolator interpolator = new DecelerateInterpolator();
-        animator.setInterpolator(interpolator);
-
-        // Iniciar la animación
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "rotation", imageView.getRotation(), imageView.getRotation() + nVueltas);
+        animator.setDuration(2000);
+        animator.setInterpolator(new DecelerateInterpolator());
         animator.start();
     }
 
