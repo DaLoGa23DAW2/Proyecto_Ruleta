@@ -3,4 +3,45 @@
     <string name="escribe_un_mensaje">Escribe un mensaje...</string>
     <string name="casino_online">Casino Online</string>
     <string name="ruleta">Ruleta</string>
+    <string name="numeroG">NG:</string>
+
+        <string name="zero">0</string>
+        <string name="uno">1</string>
+        <string name="dos">2</string>
+        <string name="tres">3</string>
+        <string name="cuatro">4</string>
+        <string name="cinco">5</string>
+        <string name="seis">6</string>
+        <string name="siete">7</string>
+        <string name="ocho">8</string>
+        <string name="nueve">9</string>
+        <string name="diez">10</string>
+        <string name="once">11</string>
+        <string name="doce">12</string>
+        <string name="trece">13</string>
+        <string name="catorce">14</string>
+        <string name="quince">15</string>
+        <string name="dieciseis">16</string>
+        <string name="diecisiete">17</string>
+        <string name="dieciocho">18</string>
+        <string name="diecinueve">19</string>
+        <string name="veinte">20</string>
+        <string name="veintiuno">21</string>
+        <string name="veintidos">22</string>
+        <string name="veintitres">23</string>
+        <string name="veinticuatro">24</string>
+        <string name="veinticinco">25</string>
+        <string name="veintiseis">26</string>
+        <string name="veintisiete">27</string>
+        <string name="veintiocho">28</string>
+        <string name="veintinueve">29</string>
+        <string name="treinta">30</string>
+        <string name="treintayuno">31</string>
+        <string name="treintaydos">32</string>
+        <string name="treintaytres">33</string>
+        <string name="treintaycuatro">34</string>
+        <string name="treintaycinco">35</string>
+        <string name="treintayseis">36</string>
+
+
 </resources>

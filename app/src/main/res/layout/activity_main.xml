@@ -1,186 +1,431 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/green_background">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/green_background">
 
-    <!-- Tablero de números -->
 
-    <!-- Sección de fichas -->
-    <GridLayout
-        android:id="@+id/roulette_board"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/board_background"
-        android:columnCount="12"
-        android:padding="8dp"
-        android:rowCount="4"
-        app:layout_constraintBottom_toTopOf="@id/chip_section"
+    <ImageView
+        android:id="@+id/ruleta"
+        android:layout_width="248dp"
+        android:layout_height="249dp"
+        android:layout_row="0"
+        android:layout_column="4"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/ruleta"
+        android:src="@drawable/ruleta"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0" />
 
-        <!-- Ruleta -->
-
-        <!-- Ejemplo de celdas -->
-
-        <ImageView
-            android:id="@+id/ruleta"
-            android:layout_width="248dp"
-            android:layout_height="249dp"
-            android:layout_row="0"
-            android:layout_column="4"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/ruleta"
-            android:src="@drawable/ruleta"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_margin="2dp"
-            android:background="@drawable/cell_background_red"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_margin="2dp"
-            android:background="@drawable/cell_background_black"
-            android:gravity="center"
-            android:text="2"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_row="0"
-            android:layout_column="3"
-            android:layout_margin="2dp"
-            android:background="@drawable/cell_background_red"
-            android:gravity="center"
-            android:text="3"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_margin="2dp"
-            android:background="@drawable/cell_background_black"
-            android:gravity="center"
-            android:text="4"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:layout_margin="2dp"
-            android:background="@drawable/cell_background_red"
-            android:gravity="center"
-            android:text="6"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_row="1"
-            android:layout_column="2"
-            android:layout_margin="2dp"
-            android:background="@drawable/cell_background_black"
-            android:gravity="center"
-            android:text="6"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/imageView"
+    <TextView
+            android:id="@+id/result_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="2"
-            android:layout_column="4"
-            app:srcCompat="@android:drawable/radiobutton_off_background" />
+            android:text="Número ganador: "
+            android:textSize="22sp"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/ruleta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
 
-        <!-- Más celdas se pueden añadir siguiendo el mismo patrón -->
-
-    </GridLayout>
 
     <LinearLayout
         android:id="@+id/chip_section"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="231dp"
+        android:layout_height="53dp"
         android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/spin_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <!-- Ficha de 1 -->
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="4dp"
-            android:src="@drawable/chip_1"
-            android:contentDescription="Chip de 1" />
+            android:contentDescription="Chip de 1"
+            android:src="@drawable/chip_1" />
 
         <!-- Ficha de 10 -->
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="4dp"
-            android:src="@drawable/chip_10"
-            android:contentDescription="Chip de 10" />
+            android:contentDescription="Chip de 10"
+            android:src="@drawable/chip_10" />
 
         <!-- Ficha de 100 -->
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="4dp"
-            android:src="@drawable/chip_100"
-            android:contentDescription="Chip de 100" />
+            android:contentDescription="Chip de 100"
+            android:src="@drawable/chip_100" />
 
         <!-- Ficha de 1000 -->
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="4dp"
-            android:src="@drawable/chip_1000"
-            android:contentDescription="Chip de 1000" />
+            android:contentDescription="Chip de 1000"
+            android:src="@drawable/chip_1000" />
 
     </LinearLayout>
 
-    <!-- Botón de Girar -->
-    <Button
-        android:id="@+id/spin_button"
+        <!-- Botón de Girar -->
+        <Button
+            android:id="@+id/spin_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GIRAR"
+            android:textSize="18sp"
+            android:background="@drawable/spin_button_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/betting_table_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/spin_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/betting_table"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GIRAR"
-        android:textSize="18sp"
-        android:background="@drawable/spin_button_background"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="8dp"
+        android:columnCount="3"
+        android:rowCount="12"
+        android:background="@color/green_background">
+
+        <Button
+            android:id="@+id/button47"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="10" />
+
+        <Button
+            android:id="@+id/button60"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="11" />
+
+        <Button
+            android:id="@+id/button62"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="11" />
+
+        <Button
+            android:id="@+id/button63"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="12" />
+
+        <Button
+            android:id="@+id/button64"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="12" />
+
+        <Button
+            android:id="@+id/button65"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="2" />
+
+        <Button
+            android:id="@+id/button48"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="4" />
+
+        <Button
+            android:id="@+id/button49"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="5" />
+
+        <Button
+            android:id="@+id/button50"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="5" />
+
+        <Button
+            android:id="@+id/button51"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="6" />
+
+        <Button
+            android:id="@+id/button52"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="6" />
+
+        <Button
+            android:id="@+id/button53"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="7" />
+
+        <Button
+            android:id="@+id/button54"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="7" />
+
+        <Button
+            android:id="@+id/button55"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="8" />
+
+        <Button
+            android:id="@+id/button56"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="8" />
+
+        <Button
+            android:id="@+id/button57"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="9" />
+
+        <Button
+            android:id="@+id/button58"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="9" />
+
+        <Button
+            android:id="@+id/button59"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="3" />
+
+        <Button
+            android:id="@+id/button61"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="10" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/button30"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/button31"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/button32"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="2" />
+
+        <Button
+            android:id="@+id/button33"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="3" />
+
+        <Button
+            android:id="@+id/button39"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="12" />
+
+        <Button
+            android:id="@+id/button36"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="3" />
+
+        <Button
+            android:id="@+id/button37"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="7" />
+
+        <Button
+            android:id="@+id/button44"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="11" />
+
+        <Button
+            android:id="@+id/button38"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="4" />
+
+        <Button
+            android:id="@+id/button40"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="1"
+            app:layout_row="5" />
+
+        <Button
+            android:id="@+id/button41"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="4" />
+
+        <Button
+            android:id="@+id/button42"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="6" />
+
+        <Button
+            android:id="@+id/button43"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="8" />
+
+        <Button
+            android:id="@+id/button45"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_row="9" />
+
+        <Button
+            android:id="@+id/button46"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="10" />
+
+        <Button
+            android:id="@+id/button34"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="Button"
+            app:layout_column="2"
+            app:layout_row="2" />
+
+        <Button
+            android:id="@+id/button28"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:text="0"
+            android:textColor="#1B1818"
+            android:textColorLink="#FF0000"
+            android:textScaleX="10"
+            android:textSize="14sp"
+            app:layout_column="0"
+            app:layout_columnSpan="3"
+            app:layout_columnWeight="3"
+            app:layout_row="0" />
+
+    </androidx.gridlayout.widget.GridLayout>
+    </FrameLayout>
+
+    <!-- Botón para expandir o contraer la tabla -->
+    <Button
+        android:id="@+id/toggle_table_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostrar Apuestas"
+        app:layout_constraintBottom_toTopOf="@id/spin_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
